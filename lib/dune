@@ -1,0 +1,19 @@
+(library
+ (name fzybindings)
+ (public_name fzybindings)
+ (libraries ctypes fzybindings.stubs)
+ (foreign_stubs
+  (language c)
+  (names fzybindings_generated_stubs))
+ (flags
+  (:standard -w -4)))
+
+(rule
+ (targets fzybindings_generated_stubs.ml)
+ (action
+  (run ./stubs/gen_stubs.exe ml %{targets})))
+
+(rule
+ (targets fzybindings_generated_stubs.c)
+ (action
+  (run ./stubs/gen_stubs.exe c %{targets})))

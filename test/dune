@@ -1,0 +1,19 @@
+(library
+ (name fzybindings_test)
+ (libraries rely.lib fzybindings)
+ (modules
+  (:standard \ test_runner))
+ (flags (:standard -linkall -g -open StdLabels -w +A-48-42-40)))
+
+(executable
+ (name test_runner)
+ (libraries rely.lib fzybindings_test)
+ (modules test_runner)
+ (flags (:standard -open StdLabels -w +A-48-42-40)))
+
+(rule
+ (alias runtest)
+ (action
+  (run ./test_runner.exe -q --color=always)))
+
+(include_subdirs unqualified)

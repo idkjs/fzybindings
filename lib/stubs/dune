@@ -1,0 +1,11 @@
+(library
+ (name fzybindings_stubs)
+ (public_name fzybindings.stubs)
+ (modules
+  (:standard \ gen_stubs))
+ (libraries ctypes.stubs))
+
+(executable
+ (name gen_stubs)
+ (modules gen_stubs)
+ (libraries ctypes.stubs fzybindings.stubs))

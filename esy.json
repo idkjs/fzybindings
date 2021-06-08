@@ -24,7 +24,7 @@
     "ocaml": "~4.10.0"
   },
   "scripts": {
-    "start": "esy x main",
+    "start": "esy dune exec example/main.exe",
     "test": "esy dune runtest --root .",
     "doc": "esy dune build @doc --root .",
     "doc-path": "esy echo #{self.target_dir}/default/_doc/_html/index.html",
